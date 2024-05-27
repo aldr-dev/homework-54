@@ -1,0 +1,13 @@
+.cell {
+  width: 30px;
+  height: 30px;
+  background: #808080;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell.clicked {
+  background: transparent;
+}

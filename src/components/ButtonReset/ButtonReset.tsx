@@ -1,4 +1,5 @@
 import React from 'react';
+import './ButtonReset.css';
 
 interface Props {
   reset: () => void;

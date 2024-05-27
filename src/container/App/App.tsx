@@ -5,7 +5,7 @@ const App = () => {
 
   return (
     <>
-    <Game />
+    <Game hasItem={false} clicked={false}/>
     </>
   );
 };

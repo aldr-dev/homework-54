@@ -1,5 +1,6 @@
 import React from 'react';
 import {Items} from '../../types';
+import './Cell.css';
 
 interface CellProps {
   item: Items;
@@ -9,7 +10,7 @@ interface CellProps {
 const Cell: React.FC<CellProps> = ({item, onClick}) => {
   return (
     <div className={`cell ${item.clicked ? 'clicked' : ''}`} onClick={onClick}>
-      {item.clicked && (item.hasItem ? 'О' : '')};
+      {item.clicked && (item.hasItem ? 'О' : '')}
     </div>
   );
 };

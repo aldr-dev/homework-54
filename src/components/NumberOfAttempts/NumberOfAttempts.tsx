@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props {
-  attempts: boolean;
+  attempts: number;
 }
 
 const NumberOfAttempts: React.FC<Props> = ({attempts}) => {

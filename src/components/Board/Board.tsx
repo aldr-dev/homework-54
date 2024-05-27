@@ -1,6 +1,7 @@
 import React from 'react';
 import {Items} from '../../types';
 import Cell from '../Cell/Cell';
+import './Board.css';
 
 interface BoardProps {
   items: Items[];
