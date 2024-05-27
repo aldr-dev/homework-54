@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
-
-interface Props {
-  hasItem: boolean;
-  clicked: boolean;
-}
+import {Items} from '../../types';
 
 const createItems = () => {
-  const array: Array<Props> = [];
+  const array: Array<Items> = [];
   for (let i = 0; i < 36; i++) {
     array.push({hasItem: false, clicked: false});
   }
@@ -15,11 +11,14 @@ const createItems = () => {
   return array;
 };
 
-const Game: React.FC<Props> = () => {
+const Game: React.FC<Items> = () => {
   const [items, setItems] = useState(createItems());
+  const [attempts, setAttempts] = useState(0);
+
+
   return (
     <div>
-      
+
     </div>
   );
 };
