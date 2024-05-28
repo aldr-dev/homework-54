@@ -18,6 +18,7 @@ const createItems = () => {
 const Game: React.FC<Items> = () => {
   const [items, setItems] = useState(createItems());
   const [attempts, setAttempts] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   const cellClickEvent = (index: number) => {
     setItems((prevState) => {
@@ -27,7 +28,16 @@ const Game: React.FC<Items> = () => {
           ...newItems[index],
           clicked: true,
         };
-        setAttempts((prevState) => prevState + 1);
+
+        if (newItems[index].hasItem) {
+          setGameOver(true);
+          return newItems.map(item => ({
+            ...item,
+            clicked: true,
+          }));
+        }
+
+        setAttempts(attempts + 1);
         return newItems;
       }
       return prevState;
@@ -37,10 +47,14 @@ const Game: React.FC<Items> = () => {
   const resetGame = () => {
     setItems(createItems());
     setAttempts(0);
+    setGameOver(false);
   };
 
   return (
     <div className="game">
+      <div className="title-result">
+        {gameOver ? <h4>Game over. Item found!</h4> : null}
+      </div>
       <Board items={items} onClickCell={cellClickEvent}/>
       <NumberOfAttempts attempts={attempts}/>
       <ButtonReset reset={resetGame}/>
